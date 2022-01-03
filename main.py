@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 from sorts import bubble_sort, merge_sort, selection_sort, radix_sort, radix_sort_in_place
-from typing import List, TypeVar, Callable
+from typing import TypeVar, Callable
 from random import randint
 import time
 
 T = TypeVar('T') # allows for typehinting unknown types
 
-def rand_arr(size: int, min_val: int = 0, max_val: int = 10) -> List[int]:
+def rand_arr(size: int, min_val: int = 0, max_val: int = 10) -> list[int]:
     '''
     creates a list of random numbers
     :size: size of return list
@@ -17,7 +17,7 @@ def rand_arr(size: int, min_val: int = 0, max_val: int = 10) -> List[int]:
     '''
     return [randint(min_val, max_val) for i in range(size)]
 
-def is_sorted(arr: List[T]) -> bool:
+def is_sorted(arr: list[T]) -> bool:
     '''
     print array and check if sorted
     :arr: the list of items
@@ -32,7 +32,7 @@ def is_sorted(arr: List[T]) -> bool:
     return True # otherwise the list is sorted
 
 
-def test_sort(sort_func: Callable[[List[int]], List[int]], number_of_items: int = 40, max_val:int = 100, print_lists: bool = True, print_time: bool = True):
+def test_sort(sort_func: Callable[[list[int]], list[int]], number_of_items: int = 40, max_val:int = 100, print_lists: bool = True, print_time: bool = True):
     '''
     test to make sure a sort function works
     :sort_func: the function that will return a sorted list

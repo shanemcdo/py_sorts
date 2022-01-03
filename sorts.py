@@ -1,9 +1,9 @@
 from math import log, floor
-from typing import List, TypeVar
+from typing import TypeVar
 
 T = TypeVar('T') # allows for typehinting unknown types
 
-def bubble_sort(arr: List[T]) -> List[T]:
+def bubble_sort(arr: list[T]) -> list[T]:
     '''
     perform the bubble sort algorithm
     :arr: the list of items
@@ -17,7 +17,7 @@ def bubble_sort(arr: List[T]) -> List[T]:
                 result[j], result[j + 1] = result[j + 1], result[j] # swap them
     return result
 
-def merge(a: List[T], b: List[T]) -> List[T]:
+def merge(a: list[T], b: list[T]) -> list[T]:
     '''
     merge two sorted lists
     :a: the first list
@@ -39,7 +39,7 @@ def merge(a: List[T], b: List[T]) -> List[T]:
             result.append(a.pop(0)) # remove from first list and add to result
     return result
 
-def merge_sort(arr: List[T]) -> List[T]:
+def merge_sort(arr: list[T]) -> list[T]:
     '''
     perform the merge sort algorithm
     :arr: the list to sort
@@ -53,7 +53,7 @@ def merge_sort(arr: List[T]) -> List[T]:
             merge_sort(arr[size // 2:]) # sort second half
             )
 
-def selection_sort(arr: List[T]) -> List[T]:
+def selection_sort(arr: list[T]) -> list[T]:
     '''
     Sorts a list using selection sort
     Type T must have < operator imlemented
@@ -72,7 +72,7 @@ def selection_sort(arr: List[T]) -> List[T]:
         arr[i], arr[smallest_idx] = arr[smallest_idx], arr[i] # swap smallest and first
     return arr
 
-def radix_sort(arr: List[int], base: int = 2) -> List[int]:
+def radix_sort(arr: list[int], base: int = 2) -> list[int]:
     '''
     Sorts a list using radix sort
     :arr: the list to be sorted
@@ -93,7 +93,7 @@ def radix_sort(arr: List[int], base: int = 2) -> List[int]:
                 result.append(bucket.pop(0)) # put into result
     return result
 
-def radix_sort_in_place(arr: List[int], base: int = 10) -> List[int]:
+def radix_sort_in_place(arr: list[int], base: int = 10) -> list[int]:
     '''
     Sorts a list using radix sort in place
     honestly idk if this can legally be called radix
