@@ -1,7 +1,7 @@
 from math import log, floor
 from typing import TypeVar
 
-T = TypeVar('T') # allows for typehinting unknown types
+T = TypeVar('T', int, float, str) # allows for typehinting unknown types
 
 def bubble_sort(arr: list[T]) -> list[T]:
     '''
@@ -80,7 +80,7 @@ def radix_sort(arr: list[int], base: int = 2) -> list[int]:
     '''
     size = len(arr) # size of array
     result = arr[:] # shallow copy array
-    buckets = [[] for _ in range(base)] # create empty buckets
+    buckets: list[list[int]] = [[] for _ in range(base)] # create empty buckets
     highest_power = max(map(lambda x: floor(log(x, base)) if x != 0 else 1, arr)) + 1 # find highest power of base
     for i in range(0, highest_power): # cycle from 0 to highest power
         divisor = base ** i # the power of the current base

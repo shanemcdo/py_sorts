@@ -5,7 +5,7 @@ from typing import TypeVar, Callable
 from random import randint
 import time
 
-T = TypeVar('T') # allows for typehinting unknown types
+T = TypeVar('T', int, float, str) # allows for typehinting unknown types
 
 def rand_arr(size: int, min_val: int = 0, max_val: int = 10) -> list[int]:
     '''
