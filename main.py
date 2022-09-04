@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from sorts import bubble_sort, merge_sort, selection_sort, radix_sort, radix_sort_in_place
+from sorts import bubble_sort, merge_sort, selection_sort, radix_sort, radix_sort_in_place, insertion_sort
 from typing import TypeVar, Callable
 from random import randint
 import time
@@ -32,10 +32,20 @@ def is_sorted(arr: list[T]) -> bool:
     return True # otherwise the list is sorted
 
 
-def test_sort(sort_func: Callable[[list[int]], list[int]], number_of_items: int = 40, max_val:int = 100, print_lists: bool = True, print_time: bool = True):
+def test_sort(
+    sort_func: Callable[[list[int]], list[int]],
+    number_of_items: int = 40,
+    max_val:int = 100,
+    print_lists: bool = True,
+    print_time: bool = True
+):
     '''
     test to make sure a sort function works
-    :sort_func: the function that will return a sorted list
+    :sort_func: callable; the function that will return a sorted list
+    :number_of_items: int; the number of items to put in a list
+    :max_val: int; the maximum value to put in the list
+    :print_lists: bool; whether or not to print the lists
+    :print_time: bool; whether or not to print the elapsed time
     '''
     print('-' * 10, f'testing {sort_func.__name__}', '-' * 10)
     arr = rand_arr(number_of_items, max_val = max_val) # get random array
@@ -58,6 +68,7 @@ def main():
     t(selection_sort)
     t(radix_sort)
     t(radix_sort_in_place)
+    t(insertion_sort)
 
 if __name__ == '__main__':
     main() # run the main method

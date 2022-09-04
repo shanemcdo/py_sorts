@@ -113,3 +113,18 @@ def radix_sort_in_place(arr: list[int], base: int = 10) -> list[int]:
                 else:
                     break
     return result
+
+def insertion_sort(arr: list[int]) -> list[int]:
+    '''
+    sorts a list using insertion sort
+    :arr: the list to be sorted
+    :returns: a sorted list
+    '''
+    result = arr[:]
+    size = len(result)
+    for i in range(size):
+        for j in reversed(range(i)):
+            if result[j] < result[j + 1]:
+                break
+            result[j], result[j + 1] = result[j + 1], result[j]
+    return result
